@@ -1,4 +1,6 @@
-with open("data/day_01.txt") as f:
+import os
+
+with open(f"data/day_01{os.getenv('DEV', '')}.txt") as f:
     data = f.read().splitlines()
 
 # Part I
