@@ -1,17 +1,12 @@
 import os
-from functools import reduce
 
 def split_number(n: str):
-    n_groups = list(
-        sorted(
-            set(
-                len(n) // i
-                for i in range(len(n) // 2, 0, -1)
-            ),
-        )
-    )
-    for n_group in n_groups:
-        len_group = len(n) // n_group
+    n_groups = [
+        i
+        for i in range(1, len(n) // 2 + 1)
+        if len(n) % i == 0
+    ]
+    for len_group in n_groups:
         yield (
             [
                 ''
@@ -65,5 +60,3 @@ for _range in data.split(","):
 
 
 print(sum(invalid))
-
-# 59305603620 too high
